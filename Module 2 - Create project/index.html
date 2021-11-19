@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Module 1-3 - HomeWork</title>
-    <link rel="stylesheet" href="./styles.css">
+    <meta http-equiv="Content-Type" content="text/html, charset=utf-8"/>
+    <title>Домашнее задание модуля 2 - "Создание проекта"</title>
+    <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
     <div id="app">
-        <h1>Список задач <like-button></like-button></h1>
+        <h1>Список задач</h1>
         <div>Осталось сделать задач: <span class="counter">{{ getCountUncompletedTasks() }}</span></div>
         <span v-if="getCountUncompletedTasks() > 0">Еще есть незакрытые задачи!</span>
         <span v-else>Вы великолепны!</span>
@@ -15,7 +15,6 @@
             <div class="item" :class="{done: task.done}" v-for="task in tasks">
                 <input type="checkbox" v-model="task.done">
                 {{ task.text }}
-                <like-button></like-button>
             </div>
             <div class="item done" v-for="completedTask in completedTasks">
                 <input type="checkbox" checked>
@@ -25,7 +24,6 @@
         <div class="form">
             <input :placeholder="placeholder" v-model="msg" @keyup.enter="addNewTask">
             <button :type="typeBtn" @click="addNewTask">Добавить</button>
-            <like-button></like-button>
         </div>
 
         <transition name="bounce">
@@ -34,7 +32,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="./app.js"></script>
-    <script src="./main.js" type="module"></script>
+    <script src="./js/app.js"></script>
 </body>
 </html>

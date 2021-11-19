@@ -1,0 +1,29 @@
+.list {
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 20px 0;
+}
+.item {
+    margin: 10px 0;
+}
+.done {
+    text-decoration: line-through;
+}
+.form {
+    margin: 20px 0;
+}
+
+.bounce-enter-active {
+    animation: bounce-in .3s alternate;
+}
+.bounce-leave-active {
+    animation: bounce-in .3s alternate-reverse;
+}
+@keyframes bounce-in {
+    from {
+        transform: scale(0) rotate(0);
+    }
+    to {
+        transform: scale(1) rotate(360deg);
+    }
+}

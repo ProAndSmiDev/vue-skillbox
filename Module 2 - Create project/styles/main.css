@@ -12,6 +12,7 @@
 .form {
     margin: 20px 0;
 }
+
 .bounce-enter-active {
     animation: bounce-in .3s alternate;
 }

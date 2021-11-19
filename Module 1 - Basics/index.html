@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html, charset=utf-8"/>
+        <title>Домашнее задание модуля 1 - "Основы Vue"</title>
+        <link rel="stylesheet" href="./styles/main.css">
+    </head>
+    <body>
+        <div id="app">
+            <h1>Список задач</h1>
+            <div>Осталось сделать задач: <span class="counter">2</span></div>
+            <div class="list">
+                <div class="item" :class="{done: task.done}" v-for="task in tasks">
+                    <input type="checkbox" v-model="task.done">
+                    {{ task.text }}
+                </div>
+                <div class="item done" v-for="completedTask in completedTasks">
+                    <input type="checkbox" checked>
+                    {{ completedTask }}
+                </div>
+            </div>
+            <div class="form">
+                <input>
+                <button type="button">Добавить</button>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>

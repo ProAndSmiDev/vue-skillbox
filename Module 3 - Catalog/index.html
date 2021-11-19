@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html, charset=utf-8"/>
+    <title>Домашнее задание модуля 3 - "Каталог товаров"</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Список задач <like></like><dislike></dislike></h1>
+        <div>Осталось сделать задач: <span class="counter">{{ getCountUncompletedTasks() }}</span></div>
+        <span v-if="getCountUncompletedTasks() > 0">Еще есть незакрытые задачи!</span>
+        <span v-else>Вы великолепны!</span>
+        <div class="list">
+            <div class="item" v-for="task in getUncompletedTasks()" :key="task.id">
+                <input type="checkbox" v-model="task.done">
+                {{ task.text }}
+                <like></like>
+                <dislike></dislike>
+            </div>
+            <div class="item done" v-for="task in getCompletedTasks()" :key="task.id">
+                <input type="checkbox" v-model="task.done">
+                {{ task.text }}
+            </div>
+        </div>
+        <div class="form">
+            <input :placeholder="placeholder" v-model="msg" @keyup.enter="addNewTask">
+            <button :type="typeBtn" @click="addNewTask">Добавить</button>
+            <like></like>
+            <dislike></dislike>
+        </div>
+
+        <transition name="bounce">
+            <img src="https://a.d-cd.net/6f938804k319-1920.jpg" width="300" alt="Privet" v-show="!getCountUncompletedTasks()">
+        </transition>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="./js/app.js" type="module"></script>
+</body>
+</html>
